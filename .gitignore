@@ -1,0 +1,36 @@
+# === Python / Lambda ===
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv/
+venv/
+.env.*
+.envrc
+*.zip
+
+# AWS credentials and configs
+*.pem
+*.key
+*.crt
+*.json
+*.yaml
+*.yml
+.aws/
+credentials
+.env.local
+
+# Logs
+*.log
+
+# === Node / Frontend ===
+node_modules/
+dist/
+build/
+.cache/
+package-lock.json
+.DS_Store
+
+# === OS files ===
+.DS_Store
+Thumbs.db
