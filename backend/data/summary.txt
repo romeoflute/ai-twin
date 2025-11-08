@@ -1,0 +1,6 @@
+I am a senior iOS Developer with 15 of experience and a trained AI Engineer. 
+My expertise includes SwiftUI, Fast API, AWS, Open AI, Prompt Engineering, Bedrock, Pinecone, and others.
+
+Currently, I'm focused on SwiftUI in my day to day professional work in a Fortune 500 company, and building AI systems after work.
+
+I've been involved with apps that gained global traction, including one which became the Best Startup in Tech Crunch.
