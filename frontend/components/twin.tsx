@@ -40,7 +40,7 @@ export default function Twin() {
         setIsLoading(true);
 
         try {
-            const response = await fetch('https://YOUR-API-ID.execute-api.us-east-1.amazonaws.com/chat', {
+            const response = await fetch('https://sykgkox5o9.execute-api.ap-southeast-2.amazonaws.com/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
