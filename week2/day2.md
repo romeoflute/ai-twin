@@ -707,7 +707,7 @@ This method is more reliable for larger packages and slower internet connections
 1. In AWS Console, search for **S3**
 2. Click **Create bucket**
 3. Configuration:
-   - Bucket name: `twin-memory-[random-suffix]` (must be globally unique)
+   - Bucket name: `twin-memory-meo-flute` (must be globally unique)
    - Region: Same as your Lambda (e.g., us-east-1)
    - Leave all other settings as default
 4. Click **Create bucket**
@@ -731,7 +731,7 @@ This method is more reliable for larger packages and slower internet connections
 
 1. Back in S3, click **Create bucket**
 2. Configuration:
-   - Bucket name: `twin-frontend-[random-suffix]`
+   - Bucket name: `twin-frontend-meo`
    - Region: Same as Lambda
    - **Uncheck** "Block all public access"
    - Check the acknowledgment box
@@ -748,6 +748,7 @@ This method is more reliable for larger packages and slower internet connections
    - Error document: `404.html`
 5. Click **Save changes**
 6. Note the **Bucket website endpoint** URL
+http://twin-frontend-meo.s3-website-ap-southeast-2.amazonaws.com
 
 ### Step 6: Configure Bucket Policy
 
