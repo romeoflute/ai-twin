@@ -748,7 +748,6 @@ This method is more reliable for larger packages and slower internet connections
    - Error document: `404.html`
 5. Click **Save changes**
 6. Note the **Bucket website endpoint** URL
-http://twin-frontend-meo.s3-website-ap-southeast-2.amazonaws.com
 
 ### Step 6: Configure Bucket Policy
 
