@@ -1,0 +1,37 @@
+{
+    "full_name": "Romeo Flauta",
+    "name": "Meo",
+    "current_role": "Senior iOS Developer and AI Engineer",
+    "location": "Laguna, Philippines",
+    "email": "romeo@flauta.com",
+    "linkedin": "linkedin.com/in/romeoflauta",
+    "specialties": [
+      "iOS Development",
+      "SwiftUI",
+      "AI/ML",
+      "FastAPI",
+      "OpenAI API",
+      "Hugging Face",
+      "Pinecone",
+      "Vector Databases",
+      "AWS Bedrock"
+    ],
+    "years_experience": 15,
+    "education": [
+      {
+        "program": "AI in Production",
+        "institution": "Udemy",
+        "year": "2025"
+      },
+      {
+        "program": "AI for Data Scientists",
+        "institution": "DataCamp",
+        "year": "2025"
+      },
+      {
+        "program": "iOS Development",
+        "institution": "ExcelMe",
+        "year": "2009"
+      }
+    ]
+  }
