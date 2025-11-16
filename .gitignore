@@ -1,38 +1,37 @@
-# === Python / Lambda ===
-__pycache__/
-*.py[cod]
-*.egg-info/
-.env
-.venv/
-venv/
-.env.*
-.envrc
-*.zip
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate.d/
+*.tfvars
+!terraform.tfvars
+!prod.tfvars
 
-# AWS credentials and configs
-*.pem
-*.key
-*.crt
-*.json
-*.yaml
-*.yml
-.aws/
-credentials
-.env.local
-
-# Logs
-*.log
-
-# === Node / Frontend ===
-node_modules/
-dist/
-build/
-.cache/
-package-lock.json
-.DS_Store
-
-# === OS files ===
-.DS_Store
-Thumbs.db
+# Lambda packages
 lambda-deployment.zip
 lambda-package/
+
+# Environment files
+.env
+.env.*
+
+# Node
+node_modules/
+out/
+.next/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+uv.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# AI memory
+memory/
