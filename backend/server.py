@@ -110,57 +110,71 @@ def save_conversation(session_id: str, messages: List[Dict]):
 
 def call_bedrock(conversation: List[Dict], user_message: str) -> str:
     """Call AWS Bedrock with conversation history"""
-    
+
+    # System prompt (Bedrock 'system' param)
+    system_prompts = [
+        {"text": prompt()}
+    ]
+
     # Build messages in Bedrock format
     messages = []
-    
-    # Add system prompt as first user message (Bedrock convention)
-    messages.append({
-        "role": "user", 
-        "content": [{"text": f"System: {prompt()}"}]
-    })
-    
-    # Add conversation history (limit to last 10 exchanges to manage context)
-    for msg in conversation[-20:]:  # Last 10 back-and-forth exchanges
+
+    # Conversation history (last 20 turns)
+    for msg in conversation[-20:]:
         messages.append({
-            "role": msg["role"],
-            "content": [{"text": msg["content"]}]
+            "role": msg["role"],  # "user" or "assistant"
+            "content": [
+                {
+                    "text": msg["content"]  # <-- plain string, no nested object
+                }
+            ],
         })
-    
-    # Add current user message
+
+    # Current user message
     messages.append({
         "role": "user",
-        "content": [{"text": user_message}]
+        "content": [
+            {
+                "text": user_message
+            }
+        ],
     })
-    
+
     try:
-        # Call Bedrock using the converse API
         response = bedrock_client.converse(
             modelId=BEDROCK_MODEL_ID,
             messages=messages,
+            system=system_prompts,
             inferenceConfig={
                 "maxTokens": 2000,
                 "temperature": 0.7,
-                "topP": 0.9
-            }
+                "topP": 0.9,
+            },
         )
-        
-        # Extract the response text
+
+        # Nova returns a single message in output
         return response["output"]["message"]["content"][0]["text"]
-        
+
     except ClientError as e:
-        error_code = e.response['Error']['Code']
-        if error_code == 'ValidationException':
-            # Handle message format issues
+        error_code = e.response["Error"]["Code"]
+        if error_code == "ValidationException":
             print(f"Bedrock validation error: {e}")
-            raise HTTPException(status_code=400, detail="Invalid message format for Bedrock")
-        elif error_code == 'AccessDeniedException':
+            raise HTTPException(
+                status_code=400,
+                detail="Invalid message format for Bedrock",
+            )
+        elif error_code == "AccessDeniedException":
             print(f"Bedrock access denied: {e}")
-            raise HTTPException(status_code=403, detail="Access denied to Bedrock model")
+            raise HTTPException(
+                status_code=403,
+                detail="Access denied to Bedrock model",
+            )
         else:
             print(f"Bedrock error: {e}")
-            raise HTTPException(status_code=500, detail=f"Bedrock error: {str(e)}")
-
+            raise HTTPException(
+                status_code=500,
+                detail=f"Bedrock error: {str(e)}",
+            )
 
 @app.get("/")
 async def root():
